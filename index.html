@@ -1619,6 +1619,35 @@
         padding: 10px 20px !important;
         border-radius: 12px !important;
       }
+
+      /* Fees table: shrink padding/font, rebalance columns and allow long
+         words to wrap so cells stop overflowing into one another on mobile. */
+      .fee-table th,
+      .fee-table td {
+        padding: 12px 8px;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .fee-table th {
+        font-size: 13px;
+      }
+
+      .fee-table th:nth-child(1),
+      .fee-table td:nth-child(1) {
+        width: 30%;
+      }
+
+      .fee-table th:nth-child(2),
+      .fee-table td:nth-child(2) {
+        width: 26%;
+      }
+
+      .fee-table th:last-child,
+      .fee-table td:last-child {
+        width: 44%;
+      }
     }
 
     @media (max-width: 575.98px) {
@@ -2419,12 +2448,35 @@
         margin-right: auto;
       }
 
+      /* Mobile: student image becomes a clean, full-colour in-flow element
+         sitting below the CTA and above the enquire form (like the
+         Entrepreneurship LP) instead of a faded overlay behind the form. */
       .hero-student {
-        left: 50%;
+        position: static;
+        left: auto;
         right: auto;
-        transform: translateX(-50%);
-        height: 70%;
-        opacity: 0.12;
+        transform: none;
+        order: 2;
+        display: block;
+        height: auto;
+        width: auto;
+        max-width: 62%;
+        max-height: 340px;
+        opacity: 1;
+        margin: 8px auto 0;
+      }
+
+      .hero-text-col {
+        order: 1;
+      }
+
+      .hero-form-col {
+        order: 3;
+      }
+
+      /* Centre the APPLY NOW button on mobile */
+      .btn-cta {
+        align-self: center;
       }
 
       .header-section .container {
