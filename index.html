@@ -2628,6 +2628,83 @@
       }
     }
 
+    /* ================================================
+       MOBILE IMAGE-SECTION REORDER
+       On mobile, image + text sections stack as:
+       Title -> image -> content -> CTA. The wrapper columns are set to
+       display:contents so their leaf elements bubble up as flex items of
+       the .row, which can then be reordered. Desktop is unaffected.
+    ================================================ */
+    @media (max-width: 768px) {
+      /* Programme Overview */
+      .about-programme-section .col-lg-6,
+      .about-programme-section .about-prog-images,
+      .about-programme-section .about-images-left-col {
+        display: contents;
+      }
+
+      .about-programme-section .row {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+      }
+
+      .about-programme-section .about-prog-title {
+        order: 1;
+        width: 100%;
+        margin-bottom: 0;
+      }
+
+      .about-programme-section .img-campus {
+        order: 2;
+        width: 100%;
+      }
+
+      .about-programme-section .about-prog-body {
+        order: 3;
+        width: 100%;
+        margin-bottom: 0;
+      }
+
+      .about-programme-section .about-prog-cta-tile {
+        order: 4;
+        width: 100%;
+      }
+
+      /* Need to know more? */
+      .ntk-section .col-lg-6 {
+        display: contents;
+      }
+
+      .ntk-section .row {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+      }
+
+      .ntk-section h2 {
+        order: 1;
+        width: 100%;
+        margin-bottom: 0 !important;
+      }
+
+      .ntk-section .ntk-img {
+        order: 2;
+        width: 100%;
+      }
+
+      .ntk-section .about-prog-body {
+        order: 3;
+        width: 100%;
+        margin-bottom: 0;
+      }
+
+      .ntk-section .btn-brochure {
+        order: 4;
+        align-self: flex-start;
+      }
+    }
+
     @media (max-width: 480px) {
       .who-section .col-6 {
         flex: 0 0 50%;
